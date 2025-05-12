@@ -10,7 +10,10 @@ class CityMenu extends Model
 {
     use HasFactory;
 
+    protected $table = 'city_menus';
+
     protected $fillable = ['city_id', 'menuId', 'name'];
+
     public function menuRelations()
     {
         return $this->hasMany(MenuRelation::class, 'menuId', 'menuId');
