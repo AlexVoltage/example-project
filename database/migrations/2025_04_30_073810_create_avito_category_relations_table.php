@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menu_relations', function (Blueprint $table) {
+        Schema::create('avito_category_relations', function (Blueprint $table) {
             $table->id();
             $table->integer('menuId');
             $table->string('GoodsType');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menu_relations');
+        Schema::dropIfExists('avito_category_relations');
     }
 };

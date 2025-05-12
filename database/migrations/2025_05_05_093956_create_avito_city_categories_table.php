@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('city_list', function (Blueprint $table) {
+        Schema::create('avito_city_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('region');
-            $table->string('token');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('prefix')->nullable();
+            $table->foreignId('city_id')->constrained(
+                table: 'avito_city_list', indexName: 'city_categories_city_list_id'
+            );
+            $table->string('menuId');
+            $table->string('name');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('city_list');
+        Schema::dropIfExists('avito_city_categories');
     }
 };

@@ -4,18 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\MenuRelation;
+use App\Models\CategoryRelation;
 
-class CityMenu extends Model
+class CityCategory extends Model
 {
     use HasFactory;
 
-    protected $table = 'city_menus';
+    protected $table = 'avito_city_categories';
 
     protected $fillable = ['city_id', 'menuId', 'name'];
 
     public function menuRelations()
     {
-        return $this->hasMany(MenuRelation::class, 'menuId', 'menuId');
+        return $this->hasMany(CategoryRelation::class, 'menuId', 'menuId');
     }
 }

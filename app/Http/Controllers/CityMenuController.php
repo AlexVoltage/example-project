@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\City;
-use App\Models\CityMenu;
-use App\Models\MenuRelation;
+use App\Models\CityCategory;
+use App\Models\CategoryRelation;
 use Illuminate\Support\Facades\DB;
 
 class CityMenuController extends Controller
@@ -1501,7 +1501,7 @@ class CityMenuController extends Controller
                 $cityId = $cityModel->id;
                 //Создаём отношения между городами и id меню
                 foreach ($this->menuIDs[$key] as $k => $v) {
-                    $cityMenuModel = new CityMenu();
+                    $cityMenuModel = new CityCategory();
                     $cityMenuModel->city_id = $cityId;
                     $cityMenuModel->menuId = $k;
                     $cityMenuModel->name = $v['name'];
@@ -1534,7 +1534,7 @@ class CityMenuController extends Controller
             //Заполняем таблицу отношений url и товара
             foreach ($array as $item => $items) {
                 foreach ($items['items'] as $k => $val){
-                    $relationModel = new MenuRelation();
+                    $relationModel = new CategoryRelation();
                     foreach ($val as $i => $value){
                         $relationModel->menuId = $item;
                         $relationModel->setAttribute($i, $value);
