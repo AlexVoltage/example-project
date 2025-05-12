@@ -1509,7 +1509,7 @@ class CityMenuController extends Controller
                 }
             }
 
-            //Получаем данные id сайта без повторов
+            //Получаем данные id сайта и свойств продукта без повторов
             $mergedArray = [];
 
             foreach ($this->menuIDs as $items) {
@@ -1522,6 +1522,8 @@ class CityMenuController extends Controller
 
             //Формируем массив для заполнения таблицы menu_relations
             $array = [];
+
+            //Получаем данные по спецтехнике если у этого menuId есть раздел спецтехники
             foreach ($mergedArray as $k => $v) {
                 $array[$k]['items'][] = $this->groupAvito[$v['typeId']];
                 if(array_key_exists($v['typeId'], $this->typeIdMap)) {
